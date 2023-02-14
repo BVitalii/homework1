@@ -14,7 +14,13 @@ var numFloat: Float = 25.4444444
 var numDouble: Double = 25.584920394
 
 var numResult = Float(numInt) + numFloat + Float(numDouble)
-print(numResult)
+for i in String(numResult) {
+    if i == "." {
+        print("Число \(numResult) является- Float")
+    } else {
+        print("Число \(numResult) является- Int")
+    }
+}
 
 // 2. Разобраться как работает приведение типов и попробовать конвертировать разные типы (например Int в String, Bool в String, String в Int)
 
@@ -59,6 +65,16 @@ func multiplication(num:Int) {
     }
 }
 multiplication(num: 5)
+
+func multiplication1(num:Int){
+
+    for i in 1...10 {
+    print("\(num) * \(i) = \(i * num)")
+    }
+  
+}
+multiplication1(num: 6)
+
 
 
 // 3. Создать функцию, которая будет принимать 3 строки(String) и в конце возвращать одну строку которая будет содержать в себе все 3 строки с пробелами между ними.
