@@ -138,32 +138,52 @@
 
 // составить программу используя 2 массива. составить викторину с вопросами и ответами. в нужный момент(конец игры) использовать break. Раундов должно быть как минимум 5. Добавить так же несгораемые суммы
 
-var questionArray: [String] = ["Назовите столицу Росии.", "Найдите ответ 2+2*2.", "Что это - не лает, не кусает, в дом не ускает.", "Самый травмоопасный коктель на новый год, по мненияю главного травматолога москвы?", "Назовите слово, которое одновременно и существительное и глагол?"]
-var answerArray: [String] = ["Москва", "8", "Замок", "Водка со льдом", "Стекло" ]
+//var questionArray: [String] = ["Назовите столицу Росии.", "Найдите ответ 2+2*2.", "Что это - не лает, не кусает, в дом не ускает.", "Самый травмоопасный коктель на новый год, по мненияю главного травматолога москвы?", "Назовите слово, которое одновременно и существительное и глагол?"]
+//
+//var answerArray: [String] = ["Москва", "8", "Замок", "Водка со льдом", "Стекло" ]
 
-var question = questionArray.randomElement()
+var dictAnswerQuestion: [String: String] = ["Назовите столицу Росии.":"Москва", "Найдите ответ 2+2*2.": "8", "Что это - не лает, не кусает, в дом не ускает.": "Замок", "Самый травмоопасный коктель на новый год, по мненияю главного травматолога москвы?": "Водка со льдом", "Назовите слово, которое одновременно и существительное и глагол?":"Стекло", "10 * 5 ?": "50"]
+var score = 0
+var round = 0
+var question = dictAnswerQuestion.randomElement()
+for (key,values) in dictAnswerQuestion {
+    print(key)
+    let gamerAnswer = readLine()
+    if values == gamerAnswer {
+        score += 1
+        print("ответ верный, итог очков \(score)" )
+    }else {
+        score -= 1
+        print("ответ не верный, итог очков \(score)")
+    }
+    round += 1
+    if round == 5 {
+        print("игра окончена")
+break
+    }
+}
 
+
+
+//var question = questionArray.randomElement()
 //print(question)
 //var gamerAnswer = readLine()
-
-var score = 0
-
-while score < 6{
-    let question = questionArray.randomElement()
-    print(question)
-    let gamerAnswer = readLine()
-if question == questionArray[1] && gamerAnswer == answerArray[1] {
-    print("Правильный ответ, вы заработали \(score) очков")
-} else if question == questionArray[0] && gamerAnswer == answerArray[0] {
-    print("Правильный ответ, вы заработали \(score) очков")
-}else if question == questionArray[2] && gamerAnswer == answerArray[2] {
-    print("Правильный ответ, вы заработали \(score) очков")
-} else if question == questionArray[3] && gamerAnswer == answerArray[3] {
-    print("Правильный ответ, вы заработали \(score) очков")
-}else if question == questionArray[4] && gamerAnswer == answerArray[4] {
-    print("Правильный ответ, вы заработали \(score) очков")
-} else {
-    print("Неправильный ответ")
-}
-score += 1
-}
+//while score < 6{
+//    let question = questionArray.randomElement()
+//    print(question)
+//    let gamerAnswer = readLine()
+//if question == questionArray[1] && gamerAnswer == answerArray[1] {
+//    print("Правильный ответ, вы заработали \(score) очков")
+//} else if question == questionArray[0] && gamerAnswer == answerArray[0] {
+//    print("Правильный ответ, вы заработали \(score) очков")
+//}else if question == questionArray[2] && gamerAnswer == answerArray[2] {
+//    print("Правильный ответ, вы заработали \(score) очков")
+//} else if question == questionArray[3] && gamerAnswer == answerArray[3] {
+//    print("Правильный ответ, вы заработали \(score) очков")
+//}else if question == questionArray[4] && gamerAnswer == answerArray[4] {
+//    print("Правильный ответ, вы заработали \(score) очков")
+//} else {
+//    print("Неправильный ответ")
+//}
+//score += 1
+//}
